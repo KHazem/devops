@@ -5,11 +5,11 @@ pipeline
             stage('Pull'){
                 steps{
                     script{
-                        checkout([$class: 'GitSCM', branches: [[name: '*/main']]],
+                        checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
                                 credentialsId: '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',
                                 url: 'https://github.com/KHazem/devops.git'
-                            ]]
+                            ]]]
                         )
                     }
                 }
