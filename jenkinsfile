@@ -1,13 +1,14 @@
 pipeline
 {
-    agent any 
+    agent any
+    tools {nodejs "node"}
         stages {
             stage('Pull'){
                 steps{
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/KHazem/devops.git'
                             ]]]
                         )
