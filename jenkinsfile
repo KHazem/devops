@@ -8,7 +8,7 @@ pipeline
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/KHazem/devops.git'
                             ]]]
                         )
@@ -18,6 +18,7 @@ pipeline
             stage('Build'){
                 steps{
                     script{
+                        sh 'npm config set registry http://registry.npmjs.org/'
                         sh 'npm install'
                         sh 'ansible-playbook ansible/build.yml -i ansible/inventory/host.ini'
                     }
