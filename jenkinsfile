@@ -7,7 +7,7 @@ pipeline
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/KHazem/devops.git'
                             ]]]
                         )
