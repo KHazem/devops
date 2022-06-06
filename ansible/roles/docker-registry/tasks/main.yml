@@ -3,6 +3,6 @@
 - name: Push to docker hub
   community.docker.docker_image:
     name: devops
-    repository: jedidighassen/my-app:latest
+    repository: karouihazem/test:latest
     source: local
     push: yes
