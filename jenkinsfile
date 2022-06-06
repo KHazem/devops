@@ -7,7 +7,7 @@ pipeline
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                             userRemoteConfigs: [[
-                                credentialsId: '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',
+                                credentialsId: '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',
                                 url: 'https://github.com/KHazem/devops.git'
                             ]]]
                         )
@@ -26,6 +26,14 @@ pipeline
                 steps{
                     script{
                         sh 'ansible-playbook ansible/docker.yml -i ansible/inventory/host.ini'
+                    }
+                }
+            }
+            stage('dockerhub'){
+                steps{
+                    script{
+                        sh 'ansible-galaxy collection install community.docker'
+                        sh 'ansible-playbook ansible/docker-registry.yml -i ansible/inventory/host.ini'
                     }
                 }
             }
